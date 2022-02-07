@@ -16,27 +16,18 @@ struct HomeScreenView: View {
 //    let r = LocationManager.shared.currentLocation
     
     var body: some View {
-        
-//        NavigationView {
-                
-//            Map(coordinateRegion: .constant(MKCoordinateRegion()))
+                        
             
+        VStack {
+        
+            Text(LocationManager.shared.checkInStatus.rawValue)
+                .font(.largeTitle)
             Map(coordinateRegion: self.$region, interactionModes: .zoom, showsUserLocation: true, userTrackingMode: .constant(.follow))
             
-            .navigationTitle(LocationManager.shared.checkInStatus.rawValue)
-                .navigationBarTitleDisplayMode(.large)
-//                .toolbar {
-//
-//                    ToolbarItem(placement: .navigationBarTrailing) {
-//                        Button {
-//                            print("plus tapped")
-//                        } label: {
-//                            Text("plus")
-////                            Image("add")
-//                        }
-//                    }
-//                }
-//        }
+//            .navigationTitle(LocationManager.shared.checkInStatus.rawValue)
+//                .navigationBarTitleDisplayMode(.large)
+            
+        }
     }
 }
 

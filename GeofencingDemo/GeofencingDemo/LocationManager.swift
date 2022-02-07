@@ -18,7 +18,11 @@ class LocationManager: NSObject , ObservableObject {
     
     @Published var currentLocation : CLLocationCoordinate2D?
     @Published var currentRegion : MKCoordinateRegion = MKCoordinateRegion()
-    @Published var checkInStatus : CheckInOut = .checkOut
+    @Published var checkInStatus : CheckInOut = .checkOut {
+        didSet {
+            print("checkIn status -> \(checkInStatus.rawValue)")
+        }
+    }
     
     
     override init() {

@@ -49,6 +49,7 @@ class GeoSceneDelegate : NSObject , UIWindowSceneDelegate {
         
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestLocation()
         locationManager.startUpdatingLocation()
 
@@ -82,22 +83,15 @@ extension GeoSceneDelegate : CLLocationManagerDelegate {
         print("Monitoring failed for region with identifier: \(region.identifier)")
     }
     
-    func locationManager(
-        _ manager: CLLocationManager,
-        didEnterRegion region: CLRegion
+    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion
     ) {
-        if region is CLCircularRegion {
-            handleEvent(for: region, checkInStatus: .checkIn)
-        }
+        handleEvent(for: region, checkInStatus: .checkIn)
     }
     
-    func locationManager(
-        _ manager: CLLocationManager,
-        didExitRegion region: CLRegion
+    
+    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion
     ) {
-        if region is CLCircularRegion {
-            handleEvent(for: region, checkInStatus: .checkOut)
-        }
+        handleEvent(for: region, checkInStatus: .checkOut)
     }
     
     func handleEvent(for region: CLRegion , checkInStatus : CheckInOut) {
