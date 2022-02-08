@@ -40,7 +40,7 @@ class LocationManager: NSObject , ObservableObject {
     
     private func addGeofence() {
         
-        let region = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 28.5355, longitude: 77.3910), radius: 100, identifier: "Noida")
+        let region = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 19.0176147, longitude: 72.8561644), radius: 100, identifier: "Mumbai")
         
         region.notifyOnEntry = true
         region.notifyOnExit = true
