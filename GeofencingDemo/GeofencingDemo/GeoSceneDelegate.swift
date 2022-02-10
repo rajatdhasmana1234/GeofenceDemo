@@ -140,9 +140,7 @@ struct NotificationHandler {
         let x = String(describing: LocationManager.shared.currentLocation?.latitude)
 
         switch checkInStatus {
-        case .checkIn:
-            
-            
+        case .checkIn:            
             body = "Checked in \(region.identifier) and current location is \(x)"
             
         case .checkOut:
